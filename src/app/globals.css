@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f5efe3;
+  --foreground: #2a2119;
+  --surface: #ece2d1;
+  --surface-raised: #e3d6bf;
+  --border: rgba(42, 33, 25, 0.14);
+  --muted: #7d7061;
+  --accent: #7a2a30;
+  --accent-soft: rgba(122, 42, 48, 0.12);
+  --accent-strong: #93343b;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply text-foreground bg-background;
+    font-family: var(--font-geist-sans), system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  ::selection {
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+  }
+}
+
+@layer utilities {
+  .font-mono-tight {
+    font-family: var(--font-geist-mono), ui-monospace, monospace;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Dot-grid backdrop, used sparingly behind hero/section headers */
+.bg-dot-grid {
+  background-image: radial-gradient(rgba(42, 33, 25, 0.14) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Single marquee track, used at most once per page */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 32s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
