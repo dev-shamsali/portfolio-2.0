@@ -24,6 +24,7 @@ export default {
       fontFamily: {
         sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
         mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
+        heading: ["var(--font-outfit)", "var(--font-geist-sans)", "system-ui", "sans-serif"],
       },
       maxWidth: {
         content: "1400px",

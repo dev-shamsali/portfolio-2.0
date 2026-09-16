@@ -9,7 +9,7 @@ import { ArrowUpRight } from "lucide-react";
 const socialLinks = [
   { icon: FaLinkedin, url: "https://www.linkedin.com/in/shams-ali-shaikh-27194425a", label: "LinkedIn" },
   { icon: FaGithub, url: "https://github.com/Shaikhshams17", label: "GitHub" },
-  { icon: FaInstagram, url: "https://www.instagram.com/shamsss_17", label: "Instagram" },
+  { icon: FaInstagram, url: "https://www.instagram.com/shamsss.in", label: "Instagram" },
 ];
 
 const fadeUp = {

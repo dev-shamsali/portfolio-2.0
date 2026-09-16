@@ -8,7 +8,7 @@
   --surface: #ece2d1;
   --surface-raised: #e3d6bf;
   --border: rgba(42, 33, 25, 0.14);
-  --muted: #7d7061;
+  --muted: #5c5347;
   --accent: #7a2a30;
   --accent-soft: rgba(122, 42, 48, 0.12);
   --accent-strong: #93343b;
@@ -25,7 +25,8 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold tracking-tight;
+    @apply font-bold tracking-tight;
+    font-family: var(--font-outfit), var(--font-geist-sans), system-ui, sans-serif;
   }
 
   ::selection {

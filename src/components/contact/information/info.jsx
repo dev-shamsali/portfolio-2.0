@@ -15,7 +15,7 @@ const socialLinks = [
   { id: "whatsapp", icon: FaWhatsapp, url: "https://wa.me/919226539203", label: "WhatsApp" },
   { id: "linkedin", icon: FaLinkedin, url: "https://linkedin.com/in/shams-ali-shaikh-27194425a", label: "LinkedIn" },
   { id: "github", icon: FaGithub, url: "https://github.com/dev-shamsali", label: "GitHub" },
-  { id: "instagram", icon: FaInstagram, url: "https://www.instagram.com/shamsss_17", label: "Instagram" },
+  { id: "instagram", icon: FaInstagram, url: "https://www.instagram.com/shamsss.in", label: "Instagram" },
 ];
 
 const contactInfo = [

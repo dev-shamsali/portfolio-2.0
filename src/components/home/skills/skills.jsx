@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { Layout, Server, Cloud, Boxes, Wrench, Sparkles } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -43,43 +44,39 @@ const CORE_STACK = [
 const SKILL_GROUPS = [
   {
     label: "Frontend",
+    Icon: Layout,
+    blurb: "Interfaces that feel fast and stay maintainable.",
     items: ["React.js", "Next.js", "Redux", "Context API", "JavaScript (ES6+)", "Tailwind CSS", "Material-UI", "Framer Motion"],
   },
   {
-    label: "Backend",
+    label: "Backend & APIs",
+    Icon: Server,
+    blurb: "Services and real-time features that hold up in production.",
     items: ["Node.js", "Express.js", "RESTful APIs", "Microservices", "WebSocket", "Socket.io", "JWT Auth"],
   },
   {
-    label: "Databases",
-    items: ["MongoDB", "MySQL", "Redis", "Firebase Realtime DB", "Firestore"],
+    label: "Data & cloud",
+    Icon: Cloud,
+    blurb: "Storage and hosting picked to fit the workload.",
+    items: ["MongoDB", "MySQL", "Redis", "Firebase", "AWS EC2 / S3 / Lambda / RDS", "Vercel", "Nginx", "PM2", "SSL/TLS"],
   },
   {
-    label: "Cloud & deployment",
-    items: ["AWS EC2 / S3 / Lambda / RDS", "Vercel", "Firebase Hosting", "Nginx", "PM2", "SSL/TLS"],
+    label: "DevOps & monitoring",
+    Icon: Boxes,
+    blurb: "Shipping and watching production without surprises.",
+    items: ["Docker", "Kubernetes", "Jenkins", "GitHub Actions", "GitLab CI/CD", "Prometheus", "Grafana", "DataDog", "Fail2ban"],
   },
   {
-    label: "DevOps & CI/CD",
-    items: ["Docker", "Kubernetes", "Jenkins", "GitHub Actions", "GitLab CI/CD"],
+    label: "Tools & payments",
+    Icon: Wrench,
+    blurb: "The everyday toolbelt, plus checkout integrations.",
+    items: ["Git", "GitHub", "GitLab", "Postman", "Linux", "Bash scripting", "Razorpay", "Stripe", "PayPal API"],
   },
   {
-    label: "Monitoring & security",
-    items: ["Prometheus", "Grafana", "DataDog", "Fail2ban", "Security audits"],
-  },
-  {
-    label: "AI developer tools",
-    items: ["Claude Code", "Claude Agent SDK", "Claude Code subagents"],
-  },
-  {
-    label: "Payments",
-    items: ["Razorpay", "Stripe", "PayPal API"],
-  },
-  {
-    label: "Tooling",
-    items: ["Git", "GitHub", "GitLab", "Postman", "Linux", "Bash scripting"],
-  },
-  {
-    label: "Practices",
-    items: ["Agile / Scrum", "Sprint planning", "Kanban", "Team leadership", "Client communication"],
+    label: "AI tools & practice",
+    Icon: Sparkles,
+    blurb: "How I actually work, day to day.",
+    items: ["Claude Code", "Claude Agent SDK", "Claude Code subagents", "Agile / Scrum", "Sprint planning", "Team leadership"],
   },
 ];
 
@@ -128,9 +125,12 @@ export default function Skills() {
   return (
     <section className="py-20 bg-background border-y border-border">
       <div className="max-w-content mx-auto px-6 lg:px-8 mb-10">
-        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
           Skills &amp; tools
         </h2>
+        <p className="text-muted mt-2 max-w-xl">
+          The stack I reach for daily, grouped by what it actually does.
+        </p>
       </div>
 
       <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] mb-16">
@@ -142,20 +142,26 @@ export default function Skills() {
       </div>
 
       <div ref={gridRef} className="max-w-content mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {SKILL_GROUPS.map((group) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {SKILL_GROUPS.map(({ label, Icon, blurb, items }) => (
             <div
-              key={group.label}
-              className="skill-group-card rounded-card border border-border bg-surface p-6"
+              key={label}
+              className="skill-group-card rounded-card border border-border bg-surface p-7 flex flex-col"
             >
-              <p className="font-mono-tight text-xs uppercase tracking-wider text-accent mb-4">
-                {group.label}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {group.items.map((item) => (
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-11 h-11 rounded-full bg-accent/10 flex items-center justify-center text-accent shrink-0">
+                  <Icon size={20} strokeWidth={2} />
+                </div>
+                <h3 className="text-lg font-bold">{label}</h3>
+              </div>
+
+              <p className="text-sm text-muted mb-5">{blurb}</p>
+
+              <div className="flex flex-wrap gap-2 mt-auto pt-5 border-t border-border">
+                {items.map((item) => (
                   <span
                     key={item}
-                    className="text-sm px-3 py-1.5 rounded-full bg-foreground/5 text-muted"
+                    className="text-sm px-3 py-1.5 rounded-full bg-foreground/5 text-foreground/80"
                   >
                     {item}
                   </span>
