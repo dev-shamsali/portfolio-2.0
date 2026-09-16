@@ -16,10 +16,11 @@ export const SITE_NAME = "Shams Ali";
 export const SITE_TITLE = "Shams Ali | Software Engineer, MERN Stack, Next.js & DevOps";
 
 export const SITE_DESCRIPTION =
-  "Shams Ali is a Software Engineer specializing in the MERN stack, Next.js, Node.js, DevOps, cloud infrastructure, Docker, CI/CD, Nginx and production deployments.";
+  "Shams Ali (Shams Ali Shaikh) is a Software Engineer specializing in the MERN stack, Next.js, Node.js, DevOps, cloud infrastructure, Docker, CI/CD, Nginx and production deployments.";
 
 export const SITE_KEYWORDS = [
   "Shams Ali",
+  "Shams Ali Shaikh",
   "Software Engineer",
   "Full Stack Developer",
   "DevOps Engineer",
@@ -49,6 +50,7 @@ export function personJsonLd() {
     "@type": "Person",
     "@id": `${PRIMARY_DOMAIN}/#person`,
     name: SITE_NAME,
+    alternateName: "Shams Ali Shaikh",
     url: PRIMARY_DOMAIN,
     jobTitle: "Software Engineer",
     description: SITE_DESCRIPTION,
