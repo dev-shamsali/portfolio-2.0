@@ -31,7 +31,7 @@ const projectList = [
     stat: null,
     description:
       "Server-rendered with Next.js, animated with GSAP and Framer Motion, tuned for Core Web Vitals rather than decoration for its own sake.",
-    url: "https://shamsali.vercel.app",
+    url: "https://shamsali.devcodehub.cloud",
     tags: ["Next.js", "GSAP", "Vercel"],
   },
   {

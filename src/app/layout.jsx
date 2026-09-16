@@ -1,6 +1,15 @@
 import { Geist, Geist_Mono, Outfit } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { MotionConfig } from "framer-motion";
+import {
+  PRIMARY_DOMAIN,
+  SITE_TITLE,
+  SITE_DESCRIPTION,
+  SITE_KEYWORDS,
+  OG_IMAGE,
+  personJsonLd,
+  websiteJsonLd,
+} from "@/lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,52 +28,35 @@ const outfit = Outfit({
   weight: ["500", "600", "700", "800"],
 });
 
-const siteUrl = "https://shamsali.vercel.app";
-const title = "Shams Ali - Full Stack Developer & DevOps Engineer";
-const description =
-  "Portfolio of Shams Ali, Full Stack Developer and DevOps Engineer specializing in the MERN stack, cloud infrastructure, and CI/CD.";
-
 export const metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(PRIMARY_DOMAIN),
   title: {
-    default: title,
+    default: SITE_TITLE,
     template: "%s | Shams Ali",
   },
-  description,
-  keywords: [
-    "Shams Ali",
-    "Full Stack Developer",
-    "DevOps Engineer",
-    "MERN Stack Developer",
-    "React Developer",
-    "Next.js Developer",
-    "Node.js Developer",
-    "AWS",
-    "Docker",
-    "Kubernetes",
-    "CI/CD",
-    "Mumbai",
-  ],
-  authors: [{ name: "Shams Ali", url: siteUrl }],
+  description: SITE_DESCRIPTION,
+  keywords: SITE_KEYWORDS,
+  authors: [{ name: "Shams Ali", url: PRIMARY_DOMAIN }],
   creator: "Shams Ali",
+  publisher: "Shams Ali",
   applicationName: "Shams Ali Portfolio",
   category: "technology",
   alternates: {
-    canonical: siteUrl,
+    canonical: "/",
   },
   openGraph: {
     type: "website",
-    url: siteUrl,
+    url: "/",
     siteName: "Shams Ali",
-    title,
-    description,
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Shams Ali" }],
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title,
-    description,
-    images: ["/og-image.png"],
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [OG_IMAGE.url],
   },
   robots: {
     index: true,
@@ -86,33 +78,15 @@ export const viewport = {
   themeColor: "#f5efe3",
 };
 
-const personJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Shams Ali",
-  url: siteUrl,
-  jobTitle: "Full Stack Developer & DevOps Engineer",
-  email: "mailto:dev.shamsali@gmail.com",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Mumbai",
-    addressRegion: "Maharashtra",
-    addressCountry: "IN",
-  },
-  sameAs: [
-    "https://github.com/dev-shamsali",
-    "https://www.linkedin.com/in/shams-ali-shaikh-27194425a",
-    "https://www.instagram.com/shamsss.in",
-  ],
-};
-
 export default function RootLayout({ children }) {
+  const jsonLd = [personJsonLd(), websiteJsonLd()];
+
   return (
     <html lang="en">
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} antialiased`}>

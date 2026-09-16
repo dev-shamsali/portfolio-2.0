@@ -34,9 +34,6 @@ export default function Hero() {
         playsInline
         preload="auto"
       />
-      <div className="absolute inset-0 bg-background/75" />
-      <div className="absolute inset-0 bg-dot-grid opacity-40 [mask-image:radial-gradient(ellipse_at_top_left,black,transparent_70%)]" />
-
       <motion.div
         className="absolute -top-32 -right-32 w-[28rem] h-[28rem] rounded-full bg-accent/10 blur-3xl"
         animate={{ scale: [1, 1.08, 1], opacity: [0.6, 0.9, 0.6] }}

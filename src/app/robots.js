@@ -1,11 +1,11 @@
-export default function robots() {
-  const base = "https://shamsali.vercel.app";
+import { PRIMARY_DOMAIN } from "@/lib/seo";
 
+export default function robots() {
   return {
     rules: {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: `${base}/sitemap.xml`,
+    sitemap: `${PRIMARY_DOMAIN}/sitemap.xml`,
   };
 }
