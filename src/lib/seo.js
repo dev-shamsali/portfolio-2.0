@@ -87,7 +87,9 @@ export function websiteJsonLd() {
     "@type": "WebSite",
     "@id": `${PRIMARY_DOMAIN}/#website`,
     name: SITE_NAME,
-    url: PRIMARY_DOMAIN,
+    alternateName: ["Shams Ali Shaikh", "Shams Ali Portfolio"],
+    url: `${PRIMARY_DOMAIN}/`,
+    inLanguage: "en",
     publisher: { "@id": `${PRIMARY_DOMAIN}/#person` },
   };
 }
